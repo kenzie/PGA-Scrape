@@ -8,7 +8,7 @@ class Tournament
     @year = year
     @id = id
     @cache_file = "cache/#{year}-#{id}.html"
-    @cahce_life_in_seconds = 60
+    @cache_life_in_seconds = 60
     @html = (cache_exist?) ? File.read(@cache_file) : download_html
   end
 
@@ -38,7 +38,7 @@ class Tournament
 
   def cache_expired?
     return true unless cache_exist?
-    File.new(@cache_file).mtime < Time::now - (@cahce_life_in_seconds.to_i)
+    File.new(@cache_file).mtime < Time::now - (@cache_life_in_seconds.to_i)
     # TODO check html rendered date
   end
 
